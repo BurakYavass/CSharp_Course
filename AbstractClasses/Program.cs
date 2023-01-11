@@ -1,27 +1,29 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace AbstractClasses
 {
-    internal class Program
+    class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
-            Database database = new SqlServer();
+            Database database = new Oracle();
             database.Add();
             database.Delete();
-            
-            Database database2 = new Oracle();
+
+            Database database2 = new SqlServer();
             database2.Add();
             database2.Delete();
-            
+
+            Console.ReadLine();
         }
     }
 
     abstract class Database
     {
-        // Örneğin add işlemi tüm databaselerde aynı olsun 
-        // ama
-        // delete işlemi hepsinde farklı olsun
         public void Add()
         {
             Console.WriteLine("Added by default");
@@ -38,7 +40,7 @@ namespace AbstractClasses
         }
     }
 
-    class Oracle : Database
+    class Oracle:Database
     {
         public override void Delete()
         {

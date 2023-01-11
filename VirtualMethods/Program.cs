@@ -1,44 +1,48 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace VirtualMethods
 {
-    internal class Program
+    class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
-            SqlServer sqlServer = new SqlServer();
+            SqlServer sqlServer=new SqlServer();
             sqlServer.Add();
-
-            MySql mySql = new MySql();
+            MySql mySql=new MySql();
             mySql.Add();
 
             Console.ReadLine();
         }
+    }
 
-        class DataBase
+    class Database
+    {
+        public virtual void Add()
         {
-            public virtual void Add()
-            {
-                Console.WriteLine("Added by default");
-            }
-            public void Delete()
-            {
-                Console.WriteLine("Deleted by default");
-            }
+            Console.WriteLine("Added by default");
         }
 
-        class SqlServer : DataBase
+        public virtual void Delete()
         {
-            public override void Add()
-            {
-                Console.WriteLine("Added Sql Server");
-                //base.Add();
-            }
+            Console.WriteLine("Deleted by default");
         }
+    }
 
-        class MySql : DataBase
+    class SqlServer:Database
+    {
+        public override void Add()
         {
-            
+            Console.WriteLine("Added by Sql Code");
+            //base.Add();
         }
+    }
+
+    class MySql:Database
+    {
+        
     }
 }

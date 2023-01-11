@@ -1,31 +1,37 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Classes
 {
-    internal class Program
+    class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
-            CustomerManager customerManager = new CustomerManager();
+            CustomerManager customerManager=new CustomerManager();
             customerManager.Add();
             customerManager.Update();
 
-            Customer customer = new Customer();
+            ProductManager productManager=new ProductManager();
+            productManager.Add();
+            productManager.Update();
+
+            Customer customer=new Customer();
             customer.City = "Ankara";
             customer.Id = 1;
-            customer.FirstName = "Burak";
-            customer.LastName = "Yavas";
+            customer.FirstName = "Engin";
+            customer.LastName = "Demiroğ";
 
             Customer customer2 = new Customer
             {
-                Id = 2, City = "Istanbul",FirstName = "Meltem", LastName = "Ersoy"
+                Id = 2, City = "İstanbul", FirstName = "Derin", LastName = "Demiroğ"
             };
-            
+
             Console.WriteLine(customer2.FirstName);
 
             Console.ReadLine();
         }
     }
-
-    
 }
