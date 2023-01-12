@@ -71,5 +71,18 @@ namespace EntityFrameworkDemo
             LoadProducts();
             MessageBox.Show("Deleted!");
         }
+
+        private void tbxSearch_TextChanged(object sender, EventArgs e)
+        {
+            SearchProducts(tbxSearch.Text);
+            
+        }
+
+        private void SearchProducts(string key)
+        {
+            dgwProducts.DataSource = _productDal.GetByName(key);
+            //dgwProducts.DataSource = _productDal.GetAll().Where(p => p.Name.ToLower().Contains(key.ToLower())).ToList();
+
+        }
     }
 }
