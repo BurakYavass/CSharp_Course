@@ -74,8 +74,20 @@ namespace EntityFrameworkDemo
 
         private void tbxSearch_TextChanged(object sender, EventArgs e)
         {
-            SearchProducts(tbxSearch.Text);
-            
+            Type t = typeof(String);
+       
+            var txt = tbxSearch.Text;
+            t = txt.GetType();
+
+            if (!decimal.TryParse(tbxSearch.Text, out _))
+            {
+                SearchProducts(tbxSearch.Text);
+            }
+            else
+            {
+                SearchProductsWithPrice(Convert.ToDecimal(tbxSearch.Text));
+            }
+
         }
 
         private void SearchProducts(string key)
@@ -83,6 +95,11 @@ namespace EntityFrameworkDemo
             dgwProducts.DataSource = _productDal.GetByName(key);
             //dgwProducts.DataSource = _productDal.GetAll().Where(p => p.Name.ToLower().Contains(key.ToLower())).ToList();
 
+        }
+
+        private void SearchProductsWithPrice(decimal key)
+        {
+            dgwProducts.DataSource = _productDal.GetByUnitPrice(key);
         }
     }
 }

@@ -57,18 +57,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ETradeContext.cs" />
-    <Compile Include="EntityFrameWorkForm.cs">
+    <Compile Include="EntityFrameworkForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EntityFrameWorkForm.Designer.cs">
-      <DependentUpon>EntityFrameWorkForm.cs</DependentUpon>
+    <Compile Include="EntityFrameworkForm.Designer.cs">
+      <DependentUpon>EntityFrameworkForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Product.cs" />
     <Compile Include="ProductDal.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="EntityFrameWorkForm.resx">
-      <DependentUpon>EntityFrameWorkForm.cs</DependentUpon>
+    <EmbeddedResource Include="EntityFrameworkForm.resx">
+      <DependentUpon>EntityFrameworkForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

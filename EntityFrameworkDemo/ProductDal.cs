@@ -26,6 +26,14 @@ namespace EntityFrameworkDemo
             }
         }
 
+        public List<Product> GetByUnitPrice(decimal price)
+        {
+            using (ETradeContext context = new ETradeContext())
+            {
+                return context.Products.Where(uP => uP.UnitPrice >= price).ToList();
+            }
+        }
+
         public void Add(Product product)
         {
             using (ETradeContext context = new ETradeContext())
